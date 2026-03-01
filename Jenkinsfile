@@ -41,7 +41,12 @@ environment {
             sh '''
                 echo "Using kubeconfig at $KUBECONFIG"
                 kubectl get nodes
-                kubectl apply -f k8s/deployment.yaml
+                kubectl apply -f k8s/mysql-secret.yaml
+    kubectl apply -f k8s/app-config.yaml
+    kubectl apply -f k8s/mysql-deployment.yaml
+    kubectl apply -f k8s/mysql-service.yaml
+    kubectl apply -f k8s/spring-deployment.yaml
+    kubectl apply -f k8s/spring-service.yaml
             '''
         }
     }
